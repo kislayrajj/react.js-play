@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.center{
+    display: flex;
+    align-items: center;
+}
+
+.custom_animate{
+    transition: all .3s ease-in-out ;
+}
