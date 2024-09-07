@@ -13,7 +13,7 @@ const Counter: React.FC = () => {
         setCount((count) => count - 1)
     }
     const handleCountReset = () => {
-        setCount((count) => count = 0)
+        setCount(0)
     }
     return (
         <div className="h-screen flex justify-center items-center">
