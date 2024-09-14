@@ -21,6 +21,7 @@ const Navbar: React.FC = () => {
   const appOptions: NavOptions[] = [
     { path: "counter", label: "Counter" },
     { path: "calculator", label: "Calculator" },
+    { path: "meme-generator", label: "MemeGenerator" },
   ]
   const themeOptions = [
     { name: "Dark", value: "dark" },
@@ -71,7 +72,10 @@ return ()=> document.removeEventListener("click", handleOutsideClick);
 
 
   return (
-    <div className={` ${theme === "dark" ? "bg-black " : " bg-blue-500"}  text-white py-2 px-2 m-2 rounded-lg `}>
+    <div className="p-2 ">
+
+    
+    <div className={` ${theme === "dark" ? "bg-black " : " bg-blue-500"}  text-white py-2 px-2  rounded-lg `}>
       <nav ref={menuRef} className="flex justify-between ">
         <ul className="flex gap-3 relative">
           {navOptions?.map((option) => (
@@ -118,6 +122,7 @@ return ()=> document.removeEventListener("click", handleOutsideClick);
           </motion.div>
         </div>
       </nav>
+    </div>
     </div>
   )
 }

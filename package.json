@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^2.2.7",
     "@types/react-router-dom": "^5.3.3",
     "framer-motion": "^11.3.24",
+    "html2canvas": "^1.4.1",
     "mathjs": "^13.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
