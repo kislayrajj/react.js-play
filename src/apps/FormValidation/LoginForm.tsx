@@ -59,11 +59,6 @@ const LoginForm: React.FC = () => {
       alert("Something went wrong");
     }
   };
-  const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("username");
-    navigate("/form");
-  };
   
   
   return (
