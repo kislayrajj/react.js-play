@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
     { path: "counter", label: "Counter" },
     { path: "calculator", label: "Calculator" },
     { path: "meme-generator", label: "MemeGenerator" },
+    { path: "form", label: "Form" },
   ]
   const themeOptions = [
     { name: "Dark", value: "dark" },
@@ -83,7 +84,7 @@ return ()=> document.removeEventListener("click", handleOutsideClick);
               <Link to={option?.path}>{option?.label}</Link>
             </li>
           ))}
-          <li onClick={handleAppMenu}>Apps</li>
+          <li onClick={handleAppMenu} className="cursor-pointer">Apps</li>
           {isAppMenu &&
        
           <motion.div
@@ -112,7 +113,7 @@ return ()=> document.removeEventListener("click", handleOutsideClick);
             {isThemeMenu &&
               <div className={` absolute top-3 right-0.5 rounded  px-2 py-3 ${theme === "dark" ? "bg-black/80 " : " bg-blue-500/80"} `}>
                 {themeOptions?.map((option) => (
-                  <div key={option.value}
+                  <div key={option.value} className="cursor-pointer"
                     onClick={() => handleThemeSelection(option.value)}
                   >{option?.name}</div>
                 ))}

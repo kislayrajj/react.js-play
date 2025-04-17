@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 
 const Counter: React.FC = () => {
     const [count, setCount] = useState<number>(0)
-  const theme = useSelector((state: RootState) => state.theme.theme)
+    const theme = useSelector((state: RootState) => state.theme.theme)
     const handleCountIncrement = () => {
         setCount((count) => count + 1)
     }

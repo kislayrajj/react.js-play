@@ -70,7 +70,7 @@ if(memeElement){
 
   return <div className='h-screen flex flex-col justify-center items-center'>
     <header>
-      <div className='bg-gradient-to-r from-blue-600 to-violet-600 center justify-between text-white px-5 py-5 w-80 sm:min-w-[400px] md:min-w-[500px] lg:min-w-[700px]'>
+      <div className='bg-gradient-to-r from-blue-600 to-violet-600 center justify-between text-white px-5 py-5 w-80 sm:min-w-[400px] md:min-w-[500px] lg:min-w-[700px] rounded-t-lg'>
         <div className='center justify-between gap-5 text-xl'>
           <i className="fa-regular fa-face-grin-tears"></i>
           <div className=''> Meme Generator</div>

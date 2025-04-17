@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from "./redux/store"
+import Form from './apps/FormValidation/Form';
 
 const App: React.FC = () => {
 
@@ -15,10 +16,11 @@ const App: React.FC = () => {
     <div className={`${theme === "dark" ? "god_level_dark" : "god_level_light"} `}>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} /> 
-        <Route path='/counter' element={<Counter />} /> 
-        <Route path='/calculator' element={<Calculator />} /> 
-        <Route path='/meme-generator' element={<MemeGenerator />} /> 
+        <Route path='/' element={<Home />} />
+        <Route path='/counter' element={<Counter />} />
+        <Route path='/calculator' element={<Calculator />} />
+        <Route path='/meme-generator' element={<MemeGenerator />} />
+        <Route path='/form/*' element={<Form />} />
       </Routes>
     </div>
   )
