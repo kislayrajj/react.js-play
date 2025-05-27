@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from "./redux/store"
 import Form from './apps/FormValidation/Form';
+import ProfileCard from './apps/ProfileCard';
 
 const App: React.FC = () => {
 
@@ -21,6 +22,7 @@ const App: React.FC = () => {
         <Route path='/calculator' element={<Calculator />} />
         <Route path='/meme-generator' element={<MemeGenerator />} />
         <Route path='/form/*' element={<Form />} />
+        <Route path='/profileCard' element={<ProfileCard />} />
       </Routes>
     </div>
   )

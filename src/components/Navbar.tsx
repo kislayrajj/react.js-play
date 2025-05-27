@@ -23,6 +23,8 @@ const Navbar: React.FC = () => {
     { path: "calculator", label: "Calculator" },
     { path: "meme-generator", label: "MemeGenerator" },
     { path: "form", label: "Form" },
+    { path: "profileCard", label: "Profile Card (CU practical exam)" },
+    { path: "firebase-auth", label: "Firebase Auth" },
   ]
   const themeOptions = [
     { name: "Dark", value: "dark" },
@@ -48,82 +50,83 @@ const Navbar: React.FC = () => {
     setIsThemeMenu(false)
   }
 
-//close all menus
+  //close all menus
 
-const handleClickOutside=(e:MouseEvent) =>{
-  const target = e.target as Node;
-if(menuRef.current && !menuRef.current.contains(target)){
-  setIsAppMenu(false)
-  setIsThemeMenu(false)
-}
-}
+  const handleClickOutside = (e: MouseEvent) => {
+    const target = e.target as Node;
+    if (menuRef.current && !menuRef.current.contains(target)) {
+      setIsAppMenu(false)
+      setIsThemeMenu(false)
+    }
+  }
 
-useEffect(()=>{
-  const handleOutsideClick =(e : MouseEvent)=> handleClickOutside(e);
-if(isAppMenu || isThemeMenu){
-  document.addEventListener("click", handleOutsideClick)
-}else{
-  document.removeEventListener("click", handleOutsideClick)
-}
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => handleClickOutside(e);
+    if (isAppMenu || isThemeMenu) {
+      document.addEventListener("click", handleOutsideClick)
+    } else {
+      document.removeEventListener("click", handleOutsideClick)
+    }
 
-return ()=> document.removeEventListener("click", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
 
-},[isAppMenu,isThemeMenu])
+  }, [isAppMenu, isThemeMenu])
 
 
 
   return (
     <div className="p-2 ">
 
-    
-    <div className={` ${theme === "dark" ? "bg-black " : " bg-blue-500"}  text-white py-2 px-2  rounded-lg `}>
-      <nav ref={menuRef} className="flex justify-between ">
-        <ul className="flex gap-3 relative">
-          {navOptions?.map((option) => (
-            <li key={option.path}>
-              <Link to={option?.path}>{option?.label}</Link>
-            </li>
-          ))}
-          <li onClick={handleAppMenu} className="cursor-pointer">Apps</li>
-          {isAppMenu &&
-       
-          <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: isAppMenu ? 1 : 0, y: isAppMenu ? 0 : -50 }}
-           className={` absolute top-10 left-8 rounded  px-2 py-3 ${theme === "dark" ? "bg-black/80 " : " bg-blue-500/80"} `}>
-            <ul>
-              {appOptions?.map((app) => (
-                <li onClick={()=> setIsAppMenu(false)} key={app?.path}>
-                  <Link to={app?.path}>{app?.label}</Link>
 
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-             }
-        </ul>
+      <div className={` ${theme === "dark" ? "bg-black " : " bg-blue-500"}  text-white py-2 px-2  rounded-lg `}>
+        <nav ref={menuRef} className="flex justify-between ">
+          <ul className="flex gap-3 relative">
+            {navOptions?.map((option) => (
+              <li key={option.path}>
+                <Link to={option?.path}>{option?.label}</Link>
+              </li>
+            ))}
+            <li onClick={handleAppMenu} className="cursor-pointer">Apps</li>
+            {isAppMenu &&
 
-        <div className="pr-2">
-          <i onClick={handleThemeMenu}
-            className="fa-solid fa-circle-half-stroke"></i>
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: isThemeMenu ? 1 : 0, y: isThemeMenu ? 0 : -50 }}
-            className="relative">
-            {isThemeMenu &&
-              <div className={` absolute top-3 right-0.5 rounded  px-2 py-3 ${theme === "dark" ? "bg-black/80 " : " bg-blue-500/80"} `}>
-                {themeOptions?.map((option) => (
-                  <div key={option.value} className="cursor-pointer"
-                    onClick={() => handleThemeSelection(option.value)}
-                  >{option?.name}</div>
-                ))}
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: isAppMenu ? 1 : 0, y: isAppMenu ? 0 : -50 }}
+                className={`absolute top-10 left-8 rounded  px-2 py-3 ${theme === "dark" ? "bg-black/80 " : " bg-blue-500/80"} `}>
+                <ol className="list-decimal list-outside space-y-1 pl-5">
+
+                  {appOptions?.map((app) => (
+                    <li onClick={() => setIsAppMenu(false)} key={app?.path} className="">
+                      <Link to={app?.path}>{app?.label}</Link>
+
+                    </li>
+                  ))}
+                </ol>
+              </motion.div>
             }
+          </ul>
 
-          </motion.div>
-        </div>
-      </nav>
-    </div>
+          <div className="pr-2">
+            <i onClick={handleThemeMenu}
+              className="fa-solid fa-circle-half-stroke"></i>
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: isThemeMenu ? 1 : 0, y: isThemeMenu ? 0 : -50 }}
+              className="relative">
+              {isThemeMenu &&
+                <div className={` absolute top-3 right-0.5 rounded  px-2 py-3 ${theme === "dark" ? "bg-black/80 " : " bg-blue-500/80"} `}>
+                  {themeOptions?.map((option) => (
+                    <div key={option.value} className="cursor-pointer"
+                      onClick={() => handleThemeSelection(option.value)}
+                    >{option?.name}</div>
+                  ))}
+                </div>
+              }
+
+            </motion.div>
+          </div>
+        </nav>
+      </div>
     </div>
   )
 }
